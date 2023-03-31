@@ -1,6 +1,7 @@
 import { View, Text, Image, FlatList } from 'react-native'
 import React, { useState } from 'react'
 import { styles } from './styles'
+import { useNavigation} from  '@react-navigation/native'
 
 import leeSin from '../../assets/leeSin.png'
 import ButtonIcon from '../../components/ButtonIcon'
@@ -89,10 +90,16 @@ const mockedAppointments = [
 
 export default function Home() {
   const [categorySelected, setCategorySelected] = useState('1')
+  
+
+  const navigation = useNavigation()
 
   function handleCategorySelect(id: string) {
     categorySelected === id ? setCategorySelected('') : setCategorySelected(id)
-    
+  }
+
+  function handleGoAppointmentDetails() {
+    navigation.navigate('AppointmentDetails', {id: '1'})
   }
 
   return (
@@ -117,11 +124,14 @@ export default function Home() {
             data={mockedAppointments}
             keyExtractor={item => item.id}
             renderItem={({item}) => (
-              <Appointment data={item} />
+              <Appointment data={item} onPress={handleGoAppointmentDetails} />
             )}
             style={styles.matches}
             showsVerticalScrollIndicator={false}
             ItemSeparatorComponent={() => <Line />}
+            contentContainerStyle={{
+              paddingBottom: 54
+            }}
           />
         </View>
     </Background>

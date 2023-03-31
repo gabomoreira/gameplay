@@ -2,25 +2,22 @@ import { StyleSheet } from "react-native";
 import { theme } from "../../global/styles/theme";
 import {getStatusBarHeight} from 'react-native-iphone-x-helper'
 
+
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
-  header: {
     width: '100%',
+    height: 104,
+    paddingTop: getStatusBarHeight(),
     paddingHorizontal: 24,
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginTop: getStatusBarHeight() + 26,
-    marginBottom: 42
+    justifyContent: "center",
+    alignItems: "center"
   },
-  content: {
+  title: {
     flex: 1,
-    marginTop: 42,
-    paddingHorizontal: 24
-  },
-  matches: {
-    marginTop: 24,
+    textAlign: "center",
+    fontFamily: theme.fonts.title_700,
+    fontSize: 20,
+    color: theme.colors.heading
   }
 })
