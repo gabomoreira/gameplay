@@ -13,7 +13,7 @@ type Props = TouchableOpacityProps & {
   checked?: boolean 
 }
 
-export default function Category({title, icon, checked = false, hasCheckedBox = true, ...rest}: Props) {
+export default function Category({title, icon, checked = false, hasCheckedBox = false, ...rest}: Props) {
   const {secondary_40, secondary_50, secondary_70, secondary_85} = theme.colors
 
   return (

@@ -10,6 +10,7 @@ import CategorySelect from '../../components/CategorySelect'
 import ListHeader from '../../components/ListHeader'
 import Appointment from '../../components/Appointment'
 import Line from '../../components/Line'
+import Background from '../../components/Background'
 
 const mockedAppointments = [
   {
@@ -95,7 +96,7 @@ export default function Home() {
   }
 
   return (
-    <View style={styles.container}>
+    <Background>
         <View style={styles.header}>
             <Profile />
 
@@ -105,7 +106,7 @@ export default function Home() {
         <View>
           <CategorySelect 
             categorySelected={categorySelected}
-            handleCategorySelect={handleCategorySelect}  
+            handleCategorySelect={handleCategorySelect}
           />
         </View>
 
@@ -123,6 +124,6 @@ export default function Home() {
             ItemSeparatorComponent={() => <Line />}
           />
         </View>
-    </View>
+    </Background>
   )
 }
