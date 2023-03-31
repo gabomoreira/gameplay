@@ -5,12 +5,15 @@ import { styles } from './styles'
 import leeSin from '../../assets/leeSin.png'
 import ButtonIcon from '../../components/ButtonIcon'
 import Profile from '../../components/Profile'
+import ButtonAdd from '../../components/ButtonAdd'
 
 export default function Home() {
   return (
     <View style={styles.container}>
         <View style={styles.header}>
             <Profile />
+
+            <ButtonAdd />
         </View>
     </View>
   )

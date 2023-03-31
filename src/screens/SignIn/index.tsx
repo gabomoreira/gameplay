@@ -1,11 +1,18 @@
 import { View, Text, Image } from 'react-native'
 import React from 'react'
 import { styles } from './styles'
+import {useNavigation} from '@react-navigation/native'
 
 import leeSin from '../../assets/leeSin.png'
 import ButtonIcon from '../../components/ButtonIcon'
 
 export default function SignIn() {
+    const navigation = useNavigation()
+
+    function handleSignIn() {
+        navigation.navigate('Home')
+    }
+
   return (
     <View style={styles.container}>
         <Image 
@@ -25,7 +32,10 @@ export default function SignIn() {
                 favoritos com seus amigos
             </Text>
 
-            <ButtonIcon />
+            <ButtonIcon 
+                title='Entrar com Discord' 
+                onPress={handleSignIn} 
+                />
         </View>
     </View>
   )
