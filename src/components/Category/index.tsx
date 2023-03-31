@@ -9,11 +9,12 @@ import { theme } from '../../global/styles/theme'
 type Props = TouchableOpacityProps & {
   title: string
   icon: ImageSourcePropType
+  hasCheckedBox?: boolean
   checked?: boolean 
 }
 
-export default function Category({title, icon, checked = false, ...rest}: Props) {
-  const {secondary_50, secondary_70} = theme.colors
+export default function Category({title, icon, checked = false, hasCheckedBox = true, ...rest}: Props) {
+  const {secondary_40, secondary_50, secondary_70, secondary_85} = theme.colors
 
   return (
     <TouchableOpacity {...rest}>
@@ -22,8 +23,11 @@ export default function Category({title, icon, checked = false, ...rest}: Props)
           style={styles.container}
           colors={[secondary_50, secondary_70]}
       >
-        <View style={[styles.content, { opacity: checked ? 1 : 0.4}]}>
-          <View style={checked ? styles.checked : styles.check} />
+        <LinearGradient 
+          style={[styles.content, { opacity: checked ? 1 : 0.5}]}
+          colors={[checked ? secondary_85 : secondary_50, secondary_40]}
+        >
+          {hasCheckedBox && <View style={checked ? styles.checked : styles.check} />}
 
           <Image 
             source={icon}
@@ -33,7 +37,7 @@ export default function Category({title, icon, checked = false, ...rest}: Props)
           <Text style={styles.title}>
             {title}
           </Text>
-        </View>
+        </LinearGradient>
       </LinearGradient>
 
     </TouchableOpacity>
